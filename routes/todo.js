@@ -1,28 +1,31 @@
-const express = require('express');
+const { compile } = require('ejs');
+const express = require('express')
 const router = express.Router();
 
 let todos = [
-    {
-        id: 1, task: "Belajar Node.Js", completed: false
-    },
-    {
-    id: 2, task: "Membuat API", completed: false
-    },
+{
+    id: 1, 
+    task:"Belajar Node.Js", 
+    complete: false
+},
+{
+    id: 2, 
+    task:"Membuat API", 
+    complete: false
+},
 ];
 
 //Endpoint untuk mendapatkan data todos
-router.get('/', (req, res) => {
-    res.json(todos);
-});
+router.get('/',(req,res) => {res.json(todos); });
 
-router.post('/', (req, res) => {
+router.post('/',(req, res) => {
     const newTodo = {
-        id: todos.length + 1,
+        id:todos.length + 1,
         task: req.body.task,
         completed: false
     };
     todos.push(newTodo);
-    res.status(201).json(newTodo);
+    res.status(201).json(newTodo)
 });
 
 // PUT: Update a todo by ID
