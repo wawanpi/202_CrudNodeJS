@@ -1,24 +1,71 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Mbud</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contact">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/todo-view">Todo</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .custom-navbar {
+            background-color: #DA291C; /* Warna merah */
+            color: white;
+            padding: 5px 10px;
+        }
+        .custom-navbar .nav-link {
+            color: white; /* Warna teks */
+        }
+        .custom-navbar .nav-link:hover {
+            color: #FFC72C; /* Warna hover kuning emas */
+        }
+        .custom-navbar .navbar-brand img {
+            height: 40px; /* Ukuran logo lebih kecil */
+            width: 40px;
+        }
+        .custom-navbar .vertical-separator {
+            font-size: 24px;
+            color: white;
+            margin-right: 10px;
+        }
+        .custom-navbar .sign-out {
+            color: black;
+        }
+        .custom-navbar .sign-out:hover {
+            color: #FFC72C;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container-fluid">
+            <div class="logo d-flex align-items-center">
+                <!-- Logo -->
+                <img src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg" 
+                     alt="Logo">
+                <!-- Vertical Separator -->
+                <span class="vertical-separator">|</span>
+                <!-- Navigation Links -->
+                <ul class="navbar-nav d-flex flex-row">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/todo-view">Todo</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Sign Out Button -->
+            <div>
+                <a class="nav-link sign-out" href="/login">
+                    <i class="fas fa-sign-out-alt"></i> Sign Out
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Font Awesome untuk ikon -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

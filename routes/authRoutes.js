@@ -24,10 +24,15 @@ router.get('/signup', (req, res) => {
     });
 });
 
-// Route Login
+// routes/authRoutes.js
 router.post('/login', (req, res) => {
+    // Log data yang diterima dari form
+    console.log('Username:', req.body.username);
+    console.log('Password:', req.body.password);
+
     const { username, password } = req.body;
 
+    // Lanjutkan proses login
     db.query('SELECT * FROM users WHERE username = ?', [username], (err, results) => {
         if (err) return res.status(500).send('Error fetching user');
         if (results.length === 0) return res.status(400).send('User not found');
@@ -36,12 +41,12 @@ router.post('/login', (req, res) => {
             if (err) return res.status(500).send('Error checking password');
             if (!isMatch) return res.status(401).send('Incorrect password');
 
-            // Simpan userId dalam sesi setelah login berhasil
-            req.session.userId = results[0].id;
-            res.redirect('/'); // Arahkan ke halaman utama setelah login
+            req.session.userId = results[0].id; // Simpan ID user dalam sesi
+            res.redirect('/'); // Arahkan ke halaman utama setelah login berhasil
         });
     });
 });
+
 
 // Route untuk menampilkan form login
 router.get('/login', (req, res) => {
@@ -57,5 +62,5 @@ router.post('/logout', (req, res) => {
         res.redirect('/login'); // Arahkan ke halaman login setelah logout
     });
 });
- 
-module.exports = router;  
+
+module.exports = router;
